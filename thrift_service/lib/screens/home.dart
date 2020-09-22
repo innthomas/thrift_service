@@ -35,7 +35,7 @@ class Home extends StatelessWidget {
           centerTitle: true,
           backgroundColor: Colors.blueGrey[500],
           title: Text(
-            "thrift service",
+            "thrift ",
             style: TextStyle(
               fontStyle: FontStyle.normal,
               color: Colors.white70,
