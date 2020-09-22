@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:thrift_service/account_model/account_model.dart';
-
-import 'sundry_screen.dart';
+import 'package:thrift_service/provider/add_account.dart';
 
 class AccountScreen extends StatefulWidget {
   AccountScreen({Key key}) : super(key: key);
@@ -18,12 +17,15 @@ class _AccountScreenState extends State<AccountScreen> {
     return Scaffold(
         backgroundColor: Colors.yellow[100],
         appBar: AppBar(
+          actions: <Widget>[
+            IconButton(icon: Icon(Icons.search), onPressed: () {})
+          ],
           leading: IconButton(
               icon: Icon(Icons.person_add),
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => SundryScreen()),
+                  MaterialPageRoute(builder: (context) => AddAccount()),
                 );
               }),
           toolbarHeight: 70.0,
@@ -41,7 +43,6 @@ class _AccountScreenState extends State<AccountScreen> {
           itemCount: box.length,
           itemBuilder: (context, index) {
             Account a = box.getAt(index);
-
             return InkWell(
               onTap: () {
                 showDialog(
@@ -73,6 +74,15 @@ class _AccountScreenState extends State<AccountScreen> {
                           child: Text("withdraw"),
                           onPressed: () {
                             setState(() {
+                              Scaffold.of(context).showSnackBar(
+                                SnackBar(
+                                  behavior: SnackBarBehavior.floating,
+                                  backgroundColor: Colors.redAccent,
+                                  content: Text(
+                                      "₦${_controller.text} for ${a.accountName} withrawn"),
+                                  duration: Duration(seconds: 3),
+                                ),
+                              );
                               a.accountBalance -=
                                   double.parse(_controller.text);
                               Box<Account> accountBox =
@@ -90,6 +100,14 @@ class _AccountScreenState extends State<AccountScreen> {
                           child: Text("deposit"),
                           onPressed: () {
                             setState(() {
+                              Scaffold.of(context).showSnackBar(
+                                SnackBar(
+                                  behavior: SnackBarBehavior.floating,
+                                  content: Text(
+                                      "deposit of ₦ ${_controller.text} for ${a.accountName} recieved"),
+                                  duration: Duration(seconds: 3),
+                                ),
+                              );
                               a.accountBalance +=
                                   double.parse(_controller.text);
                               Box<Account> accountBox =

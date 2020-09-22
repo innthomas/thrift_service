@@ -1,39 +1,23 @@
 import 'package:flutter/material.dart';
-import '../account_model/account_model.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hive/hive.dart';
+import 'package:provider/provider.dart';
+import 'package:thrift_service/account_model/account_model.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
-class SundryScreen extends StatefulWidget {
-  SundryScreen({Key key}) : super(key: key);
+import '../account_model/account_model.dart';
+
+class AddAccount extends StatefulWidget {
   @override
-  _SundryScreenState createState() => _SundryScreenState();
+  _AddAccountState createState() => _AddAccountState();
 }
 
-class _SundryScreenState extends State<SundryScreen> {
+class _AddAccountState extends State<AddAccount> {
   @override
   Widget build(BuildContext context) {
     Widget _buildDivider() => const SizedBox(height: 5);
     return Scaffold(
-      backgroundColor: Colors.teal[50],
       appBar: AppBar(
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.search),
-            onPressed: () {},
-          ),
-        ],
-        shadowColor: Colors.tealAccent,
-        elevation: 20.0,
-        toolbarHeight: 100.0,
-        centerTitle: true,
-        title: Text(
-          "add new account",
-          style: TextStyle(
-              color: Colors.white70,
-              fontFamily: "Pacifico",
-              fontSize: 30.0,
-              fontWeight: FontWeight.bold),
-        ),
+        title: Text("add account"),
       ),
       body: ValueListenableBuilder(
         valueListenable: Hive.box<Account>(accountBoxName).listenable(),
@@ -224,18 +208,7 @@ class _AddContactState extends State<AddContact> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                onPressed: () {
-                  setState(() {
-                    SnackBar(
-                      behavior: SnackBarBehavior.floating,
-                      content: Text(
-                          "account $accountNumber for $accountName opened"),
-                      duration: Duration(seconds: 3),
-                    );
-
-                    onFormSubmit();
-                  });
-                },
+                onPressed: onFormSubmit,
               ),
             ],
           ),

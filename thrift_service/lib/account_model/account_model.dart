@@ -30,6 +30,10 @@ class Account {
   @HiveField(4)
   double accountBalance;
 
-  Account(this.accountName, this.accountNumber, this.phoneNumber,
-      this.salesCategory, this.accountBalance);
+  Account(
+      [this.accountName,
+      this.accountNumber,
+      this.phoneNumber,
+      this.salesCategory,
+      this.accountBalance]);
 }

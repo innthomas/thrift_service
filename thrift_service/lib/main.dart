@@ -10,7 +10,12 @@ void main() async {
   Hive.registerAdapter(AccountAdapter());
   Hive.registerAdapter(SalesCategoryAdapter());
   await Hive.openBox<Account>(accountBoxName);
-  runApp(MyApp());
+  runApp(
+    Provider<Account>(
+      create: (context) => Account(),
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
