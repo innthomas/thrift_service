@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../login.dart';
 import './account_screen.dart';
 import './todo_screen.dart';
 import './sundry_screen.dart';
@@ -12,6 +13,25 @@ class Home extends StatelessWidget {
       child: Scaffold(
         drawer: DrawerScreen(),
         appBar: AppBar(
+          elevation: 10.0,
+          shadowColor: Colors.red[200],
+          actions: <Widget>[
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginScreen()),
+                );
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(18.0),
+                child: Text(
+                  "logOut",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ),
+            )
+          ],
           centerTitle: true,
           backgroundColor: Colors.blueGrey[500],
           title: Text(
@@ -20,7 +40,7 @@ class Home extends StatelessWidget {
               fontStyle: FontStyle.normal,
               color: Colors.white70,
               fontFamily: "Pacifico",
-              fontSize: 30.0,
+              fontSize: 40.0,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -72,8 +92,8 @@ class Home extends StatelessWidget {
         body: TabBarView(
           children: <Widget>[
             AccountScreen(),
-            TodoScreen(),
             SundryScreen(),
+            TodoScreen(),
           ],
         ),
       ),

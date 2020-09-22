@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../login.dart';
+
 class DrawerScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -24,6 +26,16 @@ class DrawerScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.pop(context);
               },
+            ),
+            SizedBox(height: 30.0),
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginScreen()),
+                );
+              },
+              child: Image.asset("assets/images/power.png"),
             ),
           ],
         ),
