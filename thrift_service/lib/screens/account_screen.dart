@@ -196,10 +196,14 @@ class AccountSearch extends SearchDelegate<Account> {
         });
   }
 
+  String selectedResult;
   @override
   Widget buildResults(BuildContext context) {
-    // TODO: implement buildResults
-    throw UnimplementedError();
+    return Container(
+      child: Center(
+        child: Text(selectedResult),
+      ),
+    );
   }
 
   List<Account> accountList = List();
@@ -209,19 +213,18 @@ class AccountSearch extends SearchDelegate<Account> {
   List<Account> suggestionList = [];
   @override
   Widget buildSuggestions(BuildContext context) {
-    accountList.addAll(box.values);
-    final myList = query.isEmpty
-        ? accountList
-        : accountList
-            .where((element) => element.accountName.startsWith(query))
-            .toList();
+    query.isEmpty
+        ? suggestionList = accountList
+        : suggestionList.addAll(box.values.where(
+            (element) => element.accountName.startsWith(query),
+          ));
 
-    return myList.isEmpty
+    return suggestionList.isEmpty
         ? Text("no data found")
         : ListView.builder(
             itemCount: box.length,
             itemBuilder: (context, index) {
-              Account a = box.getAt(index);
+              var a = suggestionList[index];
               return InkWell(
                 onTap: () {
                   showDialog(
@@ -307,6 +310,10 @@ class AccountSearch extends SearchDelegate<Account> {
                   child: Padding(
                     padding: const EdgeInsets.all(15.0),
                     child: ListTile(
+                      onTap: () {
+                        selectedResult = a.accountName;
+                        showResults(context);
+                      },
                       leading: Icon(
                         Icons.person,
                         color: Colors.yellowAccent,

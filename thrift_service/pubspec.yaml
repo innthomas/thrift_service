@@ -59,6 +59,7 @@ flutter:
     - assets/images/search_contact.png
     - assets/images/money-box2.png
     - assets/images/mbag.png
+    - assets/images/t.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

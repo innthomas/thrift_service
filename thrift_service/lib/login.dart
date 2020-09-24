@@ -39,7 +39,7 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return FlutterLogin(
       title: 'thrift',
-      logo: 'assets/images/tee.png',
+      logo: 'assets/images/mbag.png',
       onLogin: _authUser,
       onSignup: _authUser,
       onSubmitAnimationCompleted: () {
