@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
-import 'package:provider/provider.dart';
+
 import 'package:thrift_service/account_model/account_model.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -17,7 +17,11 @@ class _AddAccountState extends State<AddAccount> {
     Widget _buildDivider() => const SizedBox(height: 5);
     return Scaffold(
       appBar: AppBar(
-        title: Text("add account"),
+        centerTitle: true,
+        title: Text(
+          "add account",
+          style: TextStyle(fontFamily: "Pacifico"),
+        ),
       ),
       body: ValueListenableBuilder(
         valueListenable: Hive.box<Account>(accountBoxName).listenable(),

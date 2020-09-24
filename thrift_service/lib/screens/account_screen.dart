@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:thrift_service/account_model/account_model.dart';
-import 'package:thrift_service/provider/add_account.dart';
+import 'package:thrift_service/screens/add_account.dart';
 
 class AccountScreen extends StatefulWidget {
   AccountScreen({Key key}) : super(key: key);
