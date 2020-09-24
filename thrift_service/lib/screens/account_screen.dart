@@ -199,11 +199,7 @@ class AccountSearch extends SearchDelegate<Account> {
   String selectedResult;
   @override
   Widget buildResults(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text(selectedResult),
-      ),
-    );
+    return null;
   }
 
   List<Account> accountList = List();
@@ -310,10 +306,6 @@ class AccountSearch extends SearchDelegate<Account> {
                   child: Padding(
                     padding: const EdgeInsets.all(15.0),
                     child: ListTile(
-                      onTap: () {
-                        selectedResult = a.accountName;
-                        showResults(context);
-                      },
                       leading: Icon(
                         Icons.person,
                         color: Colors.yellowAccent,

@@ -9,7 +9,7 @@ class DrawerScreen extends StatelessWidget {
       elevation: 25.0,
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.yellow[200],
+          color: Colors.yellow[100],
           borderRadius: BorderRadius.circular(20.0),
         ),
         child: Column(
@@ -21,13 +21,13 @@ class DrawerScreen extends StatelessWidget {
             ),
             SizedBox(height: 30.0),
             CircleAvatar(
-              backgroundColor: Colors.yellow[200],
+              backgroundColor: Colors.yellow[100],
               radius: 50.0,
               child: Image.asset("assets/images/mbag.png"),
             ),
             SizedBox(height: 30.0),
             CircleAvatar(
-              backgroundColor: Colors.yellow[200],
+              backgroundColor: Colors.yellow[100],
               child: Image.asset(
                 "assets/images/settings.png",
               ),
@@ -39,7 +39,7 @@ class DrawerScreen extends StatelessWidget {
               },
               child: CircleAvatar(
                 radius: 25.0,
-                backgroundColor: Colors.yellow[200],
+                backgroundColor: Colors.yellow[100],
                 child: Image.asset(
                   "assets/images/back.png",
                 ),

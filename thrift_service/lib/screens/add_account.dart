@@ -19,8 +19,8 @@ class _AddAccountState extends State<AddAccount> {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          "add account",
-          style: TextStyle(fontFamily: "Pacifico"),
+          "add new account",
+          style: TextStyle(fontFamily: "Pacifico", fontSize: 30.0),
         ),
       ),
       body: ValueListenableBuilder(
