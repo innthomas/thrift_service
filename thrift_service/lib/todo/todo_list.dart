@@ -11,7 +11,7 @@ class TodoList extends StatelessWidget {
   Widget build(BuildContext context) {
     if (todos.isEmpty) {
       return Center(
-        child: Text('Noting to do... Great!'),
+        child: Text('Nothing to do... Great!'),
       );
     } else {
       return ListView.builder(

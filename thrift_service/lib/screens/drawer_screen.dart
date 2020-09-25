@@ -17,8 +17,8 @@ class DrawerScreen extends StatelessWidget {
           children: <Widget>[
             SizedBox(height: 30.0),
             CircleAvatar(
+              backgroundImage: AssetImage("assets/images/inn.jpg"),
               radius: 50.0,
-              child: Image.asset("assets/images/inn.jpg"),
             ),
             SizedBox(height: 30.0),
             CircleAvatar(
