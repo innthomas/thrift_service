@@ -19,10 +19,10 @@ class _SundryScreenState extends State<SundryScreen> {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.search),
-            onPressed: () {},
+            onPressed: null,
           ),
         ],
-        shadowColor: Colors.tealAccent,
+        shadowColor: Colors.black,
         elevation: 20.0,
         toolbarHeight: 100.0,
         centerTitle: true,
@@ -73,10 +73,12 @@ class _SundryScreenState extends State<SundryScreen> {
                     );
                   },
                   child: Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20.0)),
                     margin: EdgeInsets.all(10.0),
-                    shadowColor: Colors.tealAccent,
+                    shadowColor: Colors.blueGrey,
                     elevation: 15.0,
-                    color: Colors.teal[100],
+                    color: Colors.grey[300],
                     child: Padding(
                       padding: const EdgeInsets.all(15.0),
                       child: Column(

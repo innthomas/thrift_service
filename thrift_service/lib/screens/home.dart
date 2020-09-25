@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:thrift_service/todo/todo_main.dart';
 import '../login.dart';
 import './account_screen.dart';
-import './todo_screen.dart';
+
 import './sundry_screen.dart';
 import './drawer_screen.dart';
 
@@ -14,7 +15,7 @@ class Home extends StatelessWidget {
         drawer: DrawerScreen(),
         appBar: AppBar(
           elevation: 10.0,
-          shadowColor: Colors.red[200],
+          shadowColor: Colors.white,
           actions: <Widget>[
             InkWell(
               onTap: () {
@@ -47,13 +48,13 @@ class Home extends StatelessWidget {
           bottom: TabBar(
             indicator: BoxDecoration(
               borderRadius: BorderRadius.circular(50),
-              color: Colors.redAccent,
+              color: Colors.white,
             ),
             tabs: <Widget>[
               Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(50.0),
-                    border: Border.all(color: Colors.redAccent, width: 1)),
+                    border: Border.all(color: Colors.white24, width: 1)),
                 child: Align(
                   alignment: Alignment.center,
                   child: Text(
@@ -65,7 +66,7 @@ class Home extends StatelessWidget {
               Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(50.0),
-                    border: Border.all(color: Colors.redAccent, width: 1)),
+                    border: Border.all(color: Colors.white24, width: 1)),
                 child: Align(
                   alignment: Alignment.center,
                   child: Text(
@@ -77,7 +78,7 @@ class Home extends StatelessWidget {
               Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(50.0),
-                    border: Border.all(color: Colors.redAccent, width: 1)),
+                    border: Border.all(color: Colors.white24, width: 1)),
                 child: Align(
                   alignment: Alignment.center,
                   child: Text(
@@ -93,7 +94,7 @@ class Home extends StatelessWidget {
           children: <Widget>[
             AccountScreen(),
             SundryScreen(),
-            TodoScreen(),
+            TodoMyApp(),
           ],
         ),
       ),

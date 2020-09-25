@@ -61,10 +61,12 @@ class _AddAccountState extends State<AddAccount> {
                     );
                   },
                   child: Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20.0)),
                     margin: EdgeInsets.all(10.0),
-                    shadowColor: Colors.tealAccent,
+                    shadowColor: Colors.black,
                     elevation: 15.0,
-                    color: Colors.teal[100],
+                    color: Colors.blueGrey[100],
                     child: Padding(
                       padding: const EdgeInsets.all(15.0),
                       child: Column(

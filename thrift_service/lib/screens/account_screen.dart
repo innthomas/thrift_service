@@ -15,7 +15,7 @@ class _AccountScreenState extends State<AccountScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.yellow[100],
+        backgroundColor: Colors.black38,
         appBar: AppBar(
           actions: <Widget>[
             IconButton(
@@ -129,17 +129,19 @@ class _AccountScreenState extends State<AccountScreen> {
                 );
               },
               child: Card(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0)),
                 margin: EdgeInsets.all(10.0),
-                shadowColor: Colors.tealAccent,
+                shadowColor: Colors.black,
                 elevation: 15.0,
-                color: Colors.teal[100],
+                color: Colors.grey[300],
                 child: Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: ListTile(
                     key: widget.key,
                     leading: Icon(
                       Icons.person,
-                      color: Colors.yellowAccent,
+                      color: Colors.brown[700],
                     ),
                     title: Text(" ${a.accountName}",
                         style: TextStyle(fontWeight: FontWeight.bold)),
@@ -216,7 +218,7 @@ class AccountSearch extends SearchDelegate<Account> {
           ));
 
     return suggestionList.isEmpty
-        ? Text("no data found")
+        ? Center(child: Text("    no data found\n \nenter names to search"))
         : ListView.builder(
             itemCount: box.length,
             itemBuilder: (context, index) {
@@ -299,16 +301,18 @@ class AccountSearch extends SearchDelegate<Account> {
                   );
                 },
                 child: Card(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20.0)),
                   margin: EdgeInsets.all(10.0),
-                  shadowColor: Colors.tealAccent,
+                  shadowColor: Colors.black,
                   elevation: 15.0,
-                  color: Colors.teal[100],
+                  color: Colors.blueGrey[200],
                   child: Padding(
                     padding: const EdgeInsets.all(15.0),
                     child: ListTile(
                       leading: Icon(
                         Icons.person,
-                        color: Colors.yellowAccent,
+                        color: Colors.brown[700],
                       ),
                       title: Text(" ${a.accountName}",
                           style: TextStyle(fontWeight: FontWeight.bold)),

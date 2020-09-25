@@ -4,11 +4,13 @@ import 'package:thrift_service/login.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hive/hive.dart';
 import 'account_model/account_model.dart';
+import 'todo/todo.dart';
 
 void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(AccountAdapter());
   Hive.registerAdapter(SalesCategoryAdapter());
+  Hive.registerAdapter(TodoAdapter());
   await Hive.openBox<Account>(accountBoxName);
   runApp(
     Provider<Account>(

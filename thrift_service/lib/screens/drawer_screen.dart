@@ -5,11 +5,12 @@ import '../login.dart';
 class DrawerScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    Color drawerColor = Colors.blueGrey[200];
     return Drawer(
       elevation: 25.0,
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.yellow[100],
+          color: drawerColor,
           borderRadius: BorderRadius.circular(20.0),
         ),
         child: Column(
@@ -21,13 +22,18 @@ class DrawerScreen extends StatelessWidget {
             ),
             SizedBox(height: 30.0),
             CircleAvatar(
-              backgroundColor: Colors.yellow[100],
+              backgroundColor: drawerColor,
+              radius: 50.0,
+              child: Image.asset("assets/images/books.png"),
+            ),
+            CircleAvatar(
+              backgroundColor: drawerColor,
               radius: 50.0,
               child: Image.asset("assets/images/mbag.png"),
             ),
             SizedBox(height: 30.0),
             CircleAvatar(
-              backgroundColor: Colors.yellow[100],
+              backgroundColor: drawerColor,
               child: Image.asset(
                 "assets/images/settings.png",
               ),
@@ -39,7 +45,7 @@ class DrawerScreen extends StatelessWidget {
               },
               child: CircleAvatar(
                 radius: 25.0,
-                backgroundColor: Colors.yellow[100],
+                backgroundColor: drawerColor,
                 child: Image.asset(
                   "assets/images/back.png",
                 ),
