@@ -107,12 +107,6 @@ class TodoMainScreen extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(height: 10),
-        Text(
-          kIsWeb ? 'Oldest(FIFO)' : 'latest(LIFO)',
-          textAlign: TextAlign.center,
-        ),
-        const SizedBox(height: 40),
         Expanded(
           child: ValueListenableBuilder<Box<Todo>>(
             valueListenable: Hive.box<Todo>('todos').listenable(),
