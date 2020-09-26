@@ -48,6 +48,30 @@ class _AccountScreenState extends State<AccountScreen> {
           itemBuilder: (context, index) {
             Account a = box.getAt(index);
             return InkWell(
+              onDoubleTap: () {
+                showDialog(
+                  context: context,
+                  child: Scaffold(
+                    appBar: AppBar(
+                      toolbarHeight: 100.0,
+                      centerTitle: true,
+                      title: Column(
+                        children: [
+                          Text(
+                            "${a.accountName}  : ${a.accountNumber}",
+                            style: TextStyle(fontSize: 30.0),
+                          ),
+                          Text("Statement of Account")
+                        ],
+                      ),
+                    ),
+                    body: ValueListenableBuilder(
+                      valueListenable: null,
+                      builder: null,
+                    ),
+                  ),
+                );
+              },
               onTap: () {
                 showDialog(
                   context: context,
@@ -81,9 +105,12 @@ class _AccountScreenState extends State<AccountScreen> {
                               Scaffold.of(context).showSnackBar(
                                 SnackBar(
                                   behavior: SnackBarBehavior.floating,
-                                  backgroundColor: Colors.redAccent,
+                                  backgroundColor: Colors.red[200],
                                   content: Text(
-                                      "₦${_controller.text} for ${a.accountName} withrawn"),
+                                    "₦${_controller.text} for ${a.accountName} withrawn",
+                                    style: TextStyle(color: Colors.black87),
+                                    textAlign: TextAlign.center,
+                                  ),
                                   duration: Duration(seconds: 3),
                                 ),
                               );
@@ -106,9 +133,13 @@ class _AccountScreenState extends State<AccountScreen> {
                             setState(() {
                               Scaffold.of(context).showSnackBar(
                                 SnackBar(
+                                  backgroundColor: Colors.green[200],
                                   behavior: SnackBarBehavior.floating,
                                   content: Text(
-                                      "deposit of ₦ ${_controller.text} for ${a.accountName} recieved"),
+                                    "deposit of ₦ ${_controller.text} for ${a.accountName} recieved",
+                                    style: TextStyle(color: Colors.black87),
+                                    textAlign: TextAlign.center,
+                                  ),
                                   duration: Duration(seconds: 3),
                                 ),
                               );
@@ -123,6 +154,14 @@ class _AccountScreenState extends State<AccountScreen> {
                             });
                           },
                         ),
+                        SizedBox(
+                          width: 30.0,
+                        ),
+                        IconButton(
+                            icon: Icon(Icons.cancel),
+                            onPressed: () {
+                              Navigator.pop(context);
+                            }),
                       ],
                     ),
                   ),
@@ -157,7 +196,11 @@ class _AccountScreenState extends State<AccountScreen> {
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 25.0,
-                          color: _color(a.accountBalance)),
+                          color: a.accountBalance < 0.0
+                              ? Colors.red[800]
+                              : Colors.green[800]
+                          //_color(a.accountBalance),
+                          ),
                     ),
                   ),
                 ),
@@ -165,14 +208,6 @@ class _AccountScreenState extends State<AccountScreen> {
             );
           },
         ));
-  }
-}
-
-_color(double balance) {
-  if (balance < 0) {
-    return Colors.red[800];
-  } else {
-    return Colors.green[800];
   }
 }
 
@@ -326,9 +361,12 @@ class AccountSearch extends SearchDelegate<Account> {
                       trailing: Text(
                         a.accountBalance.toString(),
                         style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 25.0,
-                            color: _color(a.accountBalance)),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 25.0,
+                          color: a.accountBalance < 0.0
+                              ? Colors.red[800]
+                              : Colors.green[800],
+                        ),
                       ),
                     ),
                   ),
