@@ -66,8 +66,11 @@ class _AccountScreenState extends State<AccountScreen> {
                       ),
                     ),
                     body: ValueListenableBuilder(
-                      valueListenable: null,
-                      builder: null,
+                      valueListenable: _controller,
+                      builder: (context, value, child) {
+                        return Text(
+                            "Your balance on ${DateTime.now()} is ${a.accountBalance}");
+                      },
                     ),
                   ),
                 );
@@ -376,3 +379,5 @@ class AccountSearch extends SearchDelegate<Account> {
           );
   }
 }
+
+class MyValueNotifier {}
