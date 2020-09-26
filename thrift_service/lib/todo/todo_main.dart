@@ -92,7 +92,7 @@ class TodoMainScreen extends StatelessWidget {
           children: <Widget>[
             Text(
               'todos',
-              style: TextStyle(fontSize: 40),
+              style: TextStyle(fontSize: 20),
             ),
             const SizedBox(width: 20),
             IconButton(

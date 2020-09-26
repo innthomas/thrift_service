@@ -52,27 +52,32 @@ class _AccountScreenState extends State<AccountScreen> {
                 showDialog(
                   context: context,
                   child: Scaffold(
-                    appBar: AppBar(
-                      toolbarHeight: 100.0,
-                      centerTitle: true,
-                      title: Column(
-                        children: [
-                          Text(
-                            "${a.accountName}  : ${a.accountNumber}",
-                            style: TextStyle(fontSize: 30.0),
-                          ),
-                          Text("Statement of Account")
-                        ],
+                      appBar: AppBar(
+                        toolbarHeight: 100.0,
+                        centerTitle: true,
+                        title: Column(
+                          children: [
+                            Text(
+                              "${a.accountName}  : ${a.accountNumber}",
+                              style: TextStyle(fontSize: 30.0),
+                            ),
+                            Text("Statement of Account")
+                          ],
+                        ),
                       ),
-                    ),
-                    body: ValueListenableBuilder(
-                      valueListenable: _controller,
-                      builder: (context, value, child) {
-                        return Text(
-                            "Your balance on ${DateTime.now()} is ${a.accountBalance}");
-                      },
-                    ),
-                  ),
+                      body: ListView.builder(
+                        itemCount: accountBoxName[index].length,
+                        itemBuilder: (context, index) {
+                          return Column(
+                            children: [
+                              Text(
+                                  "deposit : ₦${a.deposit} date : ${a.time.minute}mins ${a.time.hour}hrs ${a.time.day}/${a.time.month}  ${a.time.year}:  Balance == ₦${a.accountBalance}"),
+                              Text(
+                                  "withdrawal: ₦${a.withrawal} date: ${a.time.minute} mins ${a.time.hour} hrs ${a.time.day}/${a.time.month}  ${a.time.year}:  Balance == ₦${a.accountBalance}"),
+                            ],
+                          );
+                        },
+                      )),
                 );
               },
               onTap: () {
@@ -119,6 +124,8 @@ class _AccountScreenState extends State<AccountScreen> {
                               );
                               a.accountBalance -=
                                   double.parse(_controller.text);
+                              a.time = DateTime.now();
+
                               Box<Account> accountBox =
                                   Hive.box<Account>(accountBoxName);
                               accountBox.putAt(index, a);
@@ -148,6 +155,8 @@ class _AccountScreenState extends State<AccountScreen> {
                               );
                               a.accountBalance +=
                                   double.parse(_controller.text);
+                              a.time = DateTime.now();
+                              a.deposit = double.parse(_controller.text);
                               Box<Account> accountBox =
                                   Hive.box<Account>(accountBoxName);
                               accountBox.putAt(index, a);

@@ -29,11 +29,20 @@ class Account {
   String phoneNumber;
   @HiveField(4)
   double accountBalance;
+  @HiveField(5)
+  double deposit;
+  @HiveField(6)
+  double withrawal;
+  @HiveField(7)
+  DateTime time;
 
   Account(
       [this.accountName,
       this.accountNumber,
       this.phoneNumber,
       this.salesCategory,
-      this.accountBalance]);
+      this.accountBalance,
+      this.deposit,
+      this.withrawal,
+      this.time]);
 }

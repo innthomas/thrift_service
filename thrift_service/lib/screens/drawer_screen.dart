@@ -54,10 +54,11 @@ class DrawerScreen extends StatelessWidget {
             SizedBox(height: 30.0),
             InkWell(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => LoginScreen()),
-                );
+                //Navigator.push(
+                // context,
+                // MaterialPageRoute(builder: (context) => LoginScreen()),
+                // );
+                Navigator.pop(context);
               },
               child: Image.asset("assets/images/power.png"),
             ),

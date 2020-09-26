@@ -40,8 +40,8 @@ class TodoList extends StatelessWidget {
                 Text(
                   todo.name,
                   style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
+                    fontSize: 10,
+                    //fontWeight: FontWeight.bold,
                     decoration: todo.done ? TextDecoration.lineThrough : null,
                   ),
                 ),

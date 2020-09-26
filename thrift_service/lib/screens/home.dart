@@ -19,10 +19,10 @@ class Home extends StatelessWidget {
           actions: <Widget>[
             InkWell(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => LoginScreen()),
-                );
+                //Navigator.push(
+                // context,
+                //  MaterialPageRoute(builder: (context) => LoginScreen()),
+                //);
               },
               child: Padding(
                 padding: const EdgeInsets.all(18.0),

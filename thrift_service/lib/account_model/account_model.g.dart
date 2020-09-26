@@ -66,13 +66,16 @@ class AccountAdapter extends TypeAdapter<Account> {
       fields[3] as String,
       fields[2] as SalesCategory,
       fields[4] as double,
+      fields[5] as double,
+      fields[6] as double,
+      fields[7] as DateTime,
     );
   }
 
   @override
   void write(BinaryWriter writer, Account obj) {
     writer
-      ..writeByte(5)
+      ..writeByte(8)
       ..writeByte(0)
       ..write(obj.accountName)
       ..writeByte(1)
@@ -82,7 +85,13 @@ class AccountAdapter extends TypeAdapter<Account> {
       ..writeByte(3)
       ..write(obj.phoneNumber)
       ..writeByte(4)
-      ..write(obj.accountBalance);
+      ..write(obj.accountBalance)
+      ..writeByte(5)
+      ..write(obj.deposit)
+      ..writeByte(6)
+      ..write(obj.withrawal)
+      ..writeByte(7)
+      ..write(obj.time);
   }
 
   @override
